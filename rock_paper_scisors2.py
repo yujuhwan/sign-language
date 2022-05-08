@@ -75,7 +75,7 @@ while cap.isOpened():  # 카메라가 열려있으면
             if idx in rps_gesture.keys():  # 가위, 바위, 보 중에 하나면 출력
                 gesture_name = rps_gesture[idx]
 
-                cv2.putText(img, text=gesture_name, org=(10, 50), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=2, color=(255,255,255), thickness=2)
+                cv2.putText(img, text=gesture_name, org=(10, 50), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=2, color=(0,0,0), thickness=2)
 
             mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)  # 손을 이미지에 그림
 
