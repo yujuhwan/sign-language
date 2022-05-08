@@ -1,4 +1,4 @@
-# CVZone 패키지를 활용한 제스처 인식
+# CVZone 패키지를 활용한 제스처 인식으로 동영상 플레이어
 
 from cvzone.HandTrackingModule import HandDetector  # cvzone 패키지에서 HandDetector만 사용
 import cv2
