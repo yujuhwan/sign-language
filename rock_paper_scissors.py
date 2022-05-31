@@ -20,7 +20,7 @@ while cap.isOpened():  # 열려있는 동안 while문 실행
 
     h, w, c = img.shape  # h = 480, w = 640
 
-    img = img[:, 160:160+h]  # 정사각형으로 자르기(티쳐블 머신 출력영상과 맞춤)
+    img = img[:, 160:160+h]  # 정사각형으로 자르기(티쳐블 머신 출력영상과 맞추기위해)
 
     img_input = cv2.resize(img, (224,224))  # 티처블 머신 해상도랑 동일값 이미지 (224,224) 사이즈로 변경
     img_input = cv2.cvtColor(img_input, cv2.COLOR_BGR2RGB)  # BGR -> RGB 변경  티처블 머신은 RGB를 사용

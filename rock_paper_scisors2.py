@@ -52,7 +52,6 @@ while cap.isOpened():  # 카메라가 열려있으면
             # 관절 사이의 각도 계산
             v1 = joint[[0, 1, 2, 3, 0, 5, 6, 7, 0, 9, 10, 11, 0, 13, 14, 15, 0, 17, 18, 19], :]  # Parent joint
             v2 = joint[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], :]  # Child joint
-
             v = v2 - v1 # (20, 3) # 팔목과 각 손가락 관절사이의 벡터값
 
             v = v / np.expand_dims(np.linalg.norm(v, axis=1), axis=1)

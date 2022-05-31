@@ -1,3 +1,5 @@
+# 손으로 영어 인식 프로그램(KNN알고리즘 활용)
+
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -10,8 +12,9 @@ gesture = {
     0:'a',1:'b',2:'c',3:'d',4:'e',5:'f',6:'g',7:'h',
     8:'i',9:'j',10:'k',11:'l',12:'m',13:'n',14:'o',
     15:'p',16:'q',17:'r',18:'s',19:'t',20:'u',21:'v',
-    22:'w',23:'x',24:'y',25:'z',26:'spacing',27:'clear'
+    22:'w',23:'x',24:'y',25:'z',26:'spacing',27:'clear', 28:'fuck'
 }
+
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(
@@ -19,7 +22,7 @@ hands = mp_hands.Hands(
     min_detection_confidence = 0.5,
     min_tracking_confidence = 0.5)
 
-f = open('test.txt','w')
+f = open('test.txt','w')  # dataset 수정, 추가를 위한 txt파일 저장
 
 file = np.genfromtxt('dataSet.txt',delimiter=',')
 angleFile = file[:,:-1]
@@ -39,8 +42,10 @@ while True:
     ret,img = cap.read()
     if not ret:
         continue
+    img = cv2.flip(img, 1)  # 거울 반전
     imgRGB = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
     result = hands.process(imgRGB)
+
 
     if result.multi_hand_landmarks is not None:
         for res in result.multi_hand_landmarks:
@@ -91,7 +96,6 @@ while True:
     cv2.putText(img,sentence,(20,440),cv2.FONT_HERSHEY_SIMPLEX,2,(255,255,255),3)
 
     cv2.imshow('HandTracking',img)
-    cv2.waitKey(1)
-    if keyboard.is_pressed('b'): #b를 누를시 프로그램종료
+    if cv2.waitKey(1) == ord('q'):  # q버튼 누르면 꺼짐
         break
 f.close();
