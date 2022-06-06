@@ -9,7 +9,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import ImageFont, ImageDraw, Image  # 한글호출을 위한 라이브러리
 
-actions = ['안녕', '진정해', '좋아']
+actions = ['사랑해', '안녕하세요', '만나서', '반갑다']
 seq_length = 30
 
 model = load_model('models/model.h5')
@@ -18,7 +18,7 @@ model = load_model('models/model.h5')
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(
-    max_num_hands=1,
+    max_num_hands=2,
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5)
 
