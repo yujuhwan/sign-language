@@ -24,7 +24,7 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.5,  # 추적 임계치
 )
 
-file = np.genfromtxt('../hand_gesture2/gesture_train.csv', delimiter=',')  # 파일 읽어오기
+file = np.genfromtxt('../sign_language/gesture_train.csv', delimiter=',')  # 파일 읽어오기
 angle = file[:, :-1].astype(np.float32)  # 0번 인덱스부터 마지막 인덱스(-1) 전까지 잘라서 가져옴 -> feature
 label = file[:, -1].astype(np.float32)  # 마지막 인덱스(-1)만 가져옴 -> label
 
